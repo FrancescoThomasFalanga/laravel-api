@@ -27,7 +27,7 @@ class ProjectSeeder extends Seeder
             $project->title = $faker->sentence(3);
             $project->description = $faker->text();
             $project->repo = $faker->url();
-            $project->url_img = $faker->imageUrl();
+            $project->url_img = null;
             $project->slug =  Str::slug($project->title, '-');
 
             $project->save();
