@@ -116,9 +116,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $form_data = $request->all();
+        $this->validation($request);
         
-        $this->validation($form_data);
+        $form_data = $request->all();
 
         if($request->hasFile('url_img')) {
 
@@ -172,7 +172,9 @@ class ProjectController extends Controller
     }
 
 
-    private function validation($form_data) {
+    private function validation($request) {
+
+        $form_data = $request->all();
 
         // VALIDATION ITAS
         $validator = Validator::make($form_data, [
