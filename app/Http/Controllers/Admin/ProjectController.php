@@ -116,7 +116,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        $this->validation($request);
+        $form_data = $request->all();
+        
+        $this->validation($form_data);
 
         if($request->hasFile('url_img')) {
 
@@ -131,7 +133,6 @@ class ProjectController extends Controller
          
          }
 
-        $form_data = $request->all();
 
         $project->slug = Str::slug($form_data['title'], '-');
 
@@ -145,7 +146,7 @@ class ProjectController extends Controller
 
         } else {
 
-            $project->technlogies()->detach();
+            $project->technologies()->detach();
 
         }
 
@@ -171,9 +172,7 @@ class ProjectController extends Controller
     }
 
 
-    private function validation($request) {
-
-        $form_data = $request->all();
+    private function validation($form_data) {
 
         // VALIDATION ITAS
         $validator = Validator::make($form_data, [
