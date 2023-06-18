@@ -32,7 +32,7 @@
                 <div class="logo">
     
                     <a href="{{route('admin.homepage')}}">
-                        {{-- <img src="{{Vite::asset('resources/ciccio.gif')}}" alt="LOGO"> --}}
+                        <img src="{{Vite::asset('resources/img/ciccio.gif')}}" alt="LOGO">
                     </a>
     
                 </div>
